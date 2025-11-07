@@ -47,3 +47,38 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+.DS_Store
+data-viz/inputs/FINAL_2025_wjp_rule_of_law_index_HISTORICAL_DATA_FILE.xlsx
+data-viz/inputs/Map 4.xlsx
+data-viz/inputs/Mongolia_outline.xlsx
+data-viz/outputs/F1.svg
+data-viz/outputs/F2.svg
+data-viz/outputs/F3.svg
+data-viz/outputs/F4.svg
+data-viz/outputs/F5.svg
+data-viz/outputs/F6_A.svg
+data-viz/outputs/F7.svg
+data-viz/outputs/F6_B.svg
+data-viz/outputs/F8.svg
+data-viz/ttest_gpp.csv
+data-viz/ttest_gpp.xlsx
+html/appendix/Access to Justice Variable Map_NM.docx
+html/appendix/Crime Victimization Variable Map_NM.docx
+html/appendix/Access to Justice Variable Map_NM.pdf
+html/appendix/GPP Questionnaire 2023_North Macedonia.docx
+html/appendix/Crime Victimization Variable Map_NM.pdf
+html/appendix/GPP Questionnaire 2023_North Macedonia_ALB.pdf
+html/appendix/GPP Questionnaire 2023_North Macedonia.pdf
+*.docx
+*.pdf
+*.jpg
+*.svg
+*.zip
+*.png
+*.css
+*.ico
+*.js
+*.map
+*.py
+*.html
+*.md

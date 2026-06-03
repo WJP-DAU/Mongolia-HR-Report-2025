@@ -1,36 +1,36 @@
 # Mongolia HR Report 2025
 
-Repositorio del reporte HTML/PDF de derechos humanos de Mongolia 2025 del World Justice Project.
+Repository for the World Justice Project 2025 Mongolia Human Rights Report HTML/PDF.
 
-## Estructura
+## Structure
 
 ```text
 .
 ├── html/
-│   ├── index.html                         # Reporte HTML principal
-│   └── charts_and_images/                 # SVGs usados por el HTML
+│   ├── index.html                         # Main HTML report
+│   └── charts_and_images/                 # SVG charts used by the HTML
 ├── data-viz/
-│   ├── main.R                             # Pipeline principal de graficas R
+│   ├── main.R                             # Main R chart pipeline
 │   ├── code/
-│   │   ├── settings.R                     # Configuracion, fuentes y guardado
-│   │   ├── wrangleData.R                  # Preparacion de datos
-│   │   └── data_viz.R                     # Funciones de visualizacion
-│   ├── inputs/                            # Archivos de datos locales ignorados por Git
-│   └── outputs/                           # Salidas generadas ignoradas por Git
+│   │   ├── settings.R                     # Configuration, fonts, and export helpers
+│   │   ├── wrangleData.R                  # Data preparation
+│   │   └── data_viz.R                     # Visualization functions
+│   ├── inputs/                            # Local data files ignored by Git
+│   └── outputs/                           # Generated outputs ignored by Git
 └── README.md
 ```
 
-## Flujo De Trabajo
+## Workflow
 
-1. Editar el contenido del reporte en `html/index.html`.
-2. Editar la logica de graficas en `data-viz/code/`.
-3. Regenerar graficas desde `data-viz/` con:
+1. Edit report content in `html/index.html`.
+2. Edit chart logic in `data-viz/code/`.
+3. Regenerate charts from `data-viz/` with:
 
 ```bash
 Rscript main.R
 ```
 
-4. Copiar los SVG generados desde `data-viz/outputs/` a las rutas usadas por el HTML:
+4. Copy generated SVG files from `data-viz/outputs/` to the paths used by the HTML:
 
 ```text
 F1.svg   -> html/charts_and_images/imgChart1/F1.svg
@@ -44,31 +44,23 @@ F7.svg   -> html/charts_and_images/imgChart4/F7.svg
 F8.svg   -> html/charts_and_images/imgChart4/F8.svg
 ```
 
-## Notas De Versionamiento
+## Versioning Notes
 
-`.gitignore` ignora archivos `*.html`, `*.svg`, `*.md`, entre otros. Sin embargo, este repositorio versiona de forma explicita los archivos necesarios para publicar el reporte:
+`.gitignore` ignores `*.html`, `*.svg`, `*.md`, and other generated or binary file types. This repository still explicitly versions the files required to publish the report:
 
 - `html/index.html`
 - `html/charts_and_images/**/F*.svg`
 - `README.md`
-- scripts R principales en `data-viz/code/` y `data-viz/main.R`
+- Main R scripts in `data-viz/code/` and `data-viz/main.R`
 
-Para agregar cambios en archivos ignorados que forman parte del reporte, usar `git add -f`.
+Use `git add -f` when staging ignored files that are required for the report.
 
-## Cambios Recientes
-
-- Se alineo el contenido del HTML con `html/WJPMongolia2025_Corrections.docx`.
-- Se corrigieron nombres, titulos de graficas y texto de capitulos para Mongolia.
-- Se mantuvo `Korea, Rep.` en leyendas de graficas.
-- Se actualizaron labels de graficas dumbbell y se restauro negrilla en los valores de Mongolia.
-- Se actualizaron los SVG del HTML generados desde R.
-
-## Requisitos
+## Requirements
 
 - R 4.x
-- Paquetes R usados por `data-viz/code/settings.R`, incluyendo `tidyverse`, `openxlsx`, `ggtext`, `showtext`, `sysfonts`, `haven`, `writexl`, `janitor`, `margins`, `kableExtra`, `glue` y `pacman`.
-- Fuentes Lato disponibles en la ruta configurada en `settings.R`.
+- R packages loaded by `data-viz/code/settings.R`, including `tidyverse`, `openxlsx`, `ggtext`, `showtext`, `sysfonts`, `haven`, `writexl`, `janitor`, `margins`, `kableExtra`, `glue`, and `pacman`.
+- Lato fonts available at the path configured in `settings.R`.
 
-## Autor
+## Author
 
 World Justice Project - Data Analytics Unit.

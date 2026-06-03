@@ -1,12 +1,12 @@
 # Mongolia HR Report 2025 - Data Visualizations
 
-Documentacion del pipeline R que genera las graficas del reporte de derechos humanos de Mongolia 2025.
+Documentation for the R pipeline that generates charts for the 2025 Mongolia Human Rights Report.
 
-## Objetivo
+## Purpose
 
-El pipeline genera graficas SVG para comparar a Mongolia con pares regionales en indicadores seleccionados del WJP Rule of Law Index. Las salidas se crean en `data-viz/outputs/` y, cuando se usan en el reporte, deben copiarse a `html/charts_and_images/`.
+The pipeline generates SVG charts comparing Mongolia with regional peers across selected WJP Rule of Law Index indicators. Outputs are created in `data-viz/outputs/` and, when used in the report, must be copied into `html/charts_and_images/`.
 
-## Paises De Comparacion
+## Comparison Countries
 
 - Kazakhstan
 - Hong Kong SAR, China
@@ -17,17 +17,17 @@ El pipeline genera graficas SVG para comparar a Mongolia con pares regionales en
 - Korea, Rep.
 - Japan
 
-## Tipos De Graficas
+## Chart Types
 
-| Tipo | Funcion | Uso |
+| Type | Function | Use |
 | --- | --- | --- |
-| Dumbbell | `genDumbell()` | Comparacion de Mongolia contra pares regionales por sub-factor |
-| Radar | `wjp_radar()` | Comparacion multi-metrica por ano |
-| Bars | `genBars()` | Evolucion temporal de indicadores |
+| Dumbbell | `genDumbell()` | Comparison of Mongolia against regional peers by sub-factor |
+| Radar | `wjp_radar()` | Multi-metric comparison by year |
+| Bars | `genBars()` | Indicator trends over time |
 
-En las graficas dumbbell, los valores de Mongolia se dibujan con `geom_text()` en `code/data_viz.R`; esos labels usan `fontface = "bold"` para mantener el numero sobre la bola de Mongolia en negrilla.
+For dumbbell charts, Mongolia values are drawn with `geom_text()` in `code/data_viz.R`; those labels use `fontface = "bold"` to keep the number above Mongolia's marker in bold.
 
-## Estructura
+## Structure
 
 ```text
 data-viz/
@@ -51,25 +51,25 @@ data-viz/
     └── F8.svg
 ```
 
-## Ejecucion
+## Running The Pipeline
 
-Desde la carpeta `data-viz/`:
+From the `data-viz/` directory:
 
 ```bash
 Rscript main.R
 ```
 
-El script:
+The script:
 
-1. Carga configuracion, fuentes y funciones desde `code/settings.R`, `code/wrangleData.R` y `code/data_viz.R`.
-2. Lee los datos desde `inputs/`.
-3. Construye los datasets por figura.
-4. Genera las figuras definidas en `inputs/Mongolia_outline.xlsx`.
-5. Guarda los SVG en `outputs/`.
+1. Loads configuration, fonts, and functions from `code/settings.R`, `code/wrangleData.R`, and `code/data_viz.R`.
+2. Reads input files from `inputs/`.
+3. Builds figure-specific datasets.
+4. Generates the figures defined in `inputs/Mongolia_outline.xlsx`.
+5. Saves SVG files in `outputs/`.
 
-## Copia Al HTML
+## Copying Charts To The HTML
 
-Despues de regenerar las graficas, copiar las salidas al HTML:
+After regenerating charts, copy the outputs into the HTML asset folders:
 
 ```bash
 cp outputs/F1.svg ../html/charts_and_images/imgChart1/F1.svg
@@ -83,13 +83,13 @@ cp outputs/F7.svg ../html/charts_and_images/imgChart4/F7.svg
 cp outputs/F8.svg ../html/charts_and_images/imgChart4/F8.svg
 ```
 
-## Versionamiento
+## Versioning
 
-Los archivos de `data-viz/outputs/` estan ignorados por Git. Los SVG que se publican son los copiados a `html/charts_and_images/` y se agregan con `git add -f` porque `.gitignore` ignora `*.svg`.
+Files in `data-viz/outputs/` are ignored by Git. Published SVG files are the copies stored under `html/charts_and_images/`; they must be staged with `git add -f` because `.gitignore` ignores `*.svg`.
 
-Los inputs de datos tambien estan ignorados por Git. No subir archivos de datos privados o archivos generados que no sean necesarios para el reporte final.
+Input data files are also ignored by Git. Do not commit private data files or generated files that are not required for the final report.
 
-## Requisitos
+## Requirements
 
 - R 4.x
 - `pacman`
@@ -105,11 +105,11 @@ Los inputs de datos tambien estan ignorados por Git. No subir archivos de datos 
 - `kableExtra`
 - `glue`
 
-`settings.R` intenta cargar `WJPr`; si no esta disponible, puede emitir advertencias. En la ultima ejecucion, esas advertencias no impidieron generar `F1.svg` a `F8.svg`.
+`settings.R` attempts to load `WJPr`; if unavailable, it may emit warnings. In the latest successful run, those warnings did not prevent generating `F1.svg` through `F8.svg`.
 
-## Configuracion
+## Configuration
 
-El pais principal y la lista de comparacion se definen en `main.R`:
+The main country and comparison list are defined in `main.R`:
 
 ```r
 MAIN_COUNTRY <- "Mongolia"
@@ -125,4 +125,4 @@ COMP_COUNTRIES <- c(
 )
 ```
 
-Las etiquetas de sub-factores se definen en `code/wrangleData.R`. La convencion actual usa sentence case de acuerdo con las correcciones del reporte.
+Sub-factor labels are defined in `code/wrangleData.R`. The current convention uses sentence case in line with the report corrections.

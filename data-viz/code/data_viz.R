@@ -57,11 +57,11 @@ genDumbell <- function(data) {
                    color = Country),
                size = 5) +
     
-    # Display Thailand values as text labels
+    # Display main country values as text labels
     geom_text(data = subset(data, Country == MAIN_COUNTRY),
               aes(x = values, y = reorder(label_var, -values),
                   label = sprintf("%.2f", values)),  # Use sprintf() for exactly two decimals
-              hjust = 0.45, vjust = -2, size = 4,
+              hjust = 0.45, vjust = -2, size = 4, fontface = "bold",
               family = "Lato Bold", color = "#524F4C") +
     
     # Add mean value as a text ribbon on the right

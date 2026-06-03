@@ -11,28 +11,28 @@
 ## Wrangling function ------------------------------------------------------------------------------------
 
 wrangleData <- function(figid, outline, master_data, main_country, comparison_countries) {
-  # Etiquetas
+  # Etiquetas (sin Title Case según estándares WJP)
   metric_labels <- c(
-    "1.5" = "Non-Governmental Checks<br> of Government Power",
-    "3.3" = "Civic Participation",
-    "3.4" = "Access to Complaint<br> Mechanisms",
-    "3.2" = "Right to <br> Information",
-    "4.3" = "Due Process of<br>the Law and Rights<br> of the Accused",
-    "7.4" = "Improper<br> Government Influence<br> in Civil Justice",
-    "8.6" = "Improper<br> Government Influence<br> in Criminal Justice",
-    "7.1" = "Access to <br> and Affordability<br> of Civil Justice",
-    "8.4" = "Impartiality in <br> Criminal Justice",
-    "4.1" = "Equality<br> and Discrimination",
-    "7.2" = "Discrimination<br> in Civil Justice",
-    "4.8" = "Labor Rights",
-    "6.4" = "Due Process is <br> Respected in<br>Administrative Proceedings",
-    "4.2" = "The Right to <br>Life and Security of<br>the Person is Effectively<br> Guaranteed",
-    "6.3" = "Administrative <br>Proceedings are Conducted <br>without Unreasonable Delay",
-    "4.7" = "Freedom of <br> Assembly and Association",
-    "4.4" = "Freedom of <br> Expression and <br> Opinion",
-    "4.5" = "Freedom of <br> Belief and Religion",
-    "4.6" = "Freedom from <br> Interference with <br> Privacy",
-    "6.5" = "Protection from <br>Expropriation without <br>Due Process"
+    "1.5" = "Non-governmental checks<br> of government power",
+    "3.3" = "Civic participation",
+    "3.4" = "Access to complaint<br> mechanisms",
+    "3.2" = "Right to <br> information",
+    "4.3" = "Due process of<br>the law and rights<br> of the accused",
+    "7.4" = "Improper<br> government influence<br> in civil justice",
+    "8.6" = "Improper<br> government influence<br> in criminal justice",
+    "7.1" = "Access to <br> and affordability<br> of civil justice",
+    "8.4" = "Impartiality in <br> criminal justice",
+    "4.1" = "Equality<br> and discrimination",
+    "7.2" = "Discrimination<br> in civil justice",
+    "4.8" = "Labor rights",
+    "6.4" = "Due process is <br> respected in<br>administrative proceedings",
+    "4.2" = "The right to <br>life and security of<br>the person is effectively<br> guaranteed",
+    "6.3" = "Administrative <br>proceedings are conducted <br>without unreasonable delay",
+    "4.7" = "Freedom of <br> assembly and association",
+    "4.4" = "Freedom of <br> expression and <br> opinion",
+    "4.5" = "Freedom of <br> belief and religion",
+    "4.6" = "Freedom from <br> interference with <br> privacy",
+    "6.5" = "Protection from <br>expropriation without <br>due process"
   )
   dumbell_wrapped_metric_labels <- sapply(metric_labels, function(x) stringr::str_wrap(x, width = 30))
   
